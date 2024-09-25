@@ -52,17 +52,23 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  CardHome(
-                    components: [
-                      SizedBox(
-                          height: Dimensions.width(context) * 0.23,
-                          child: Image(image: AssetImage(Assets.imagesVideo))),
-                      TextStyleNoor(
-                        text: "قسم الدروس المرئية",
-                        color: Colors.indigo,
-                        size: 12,
-                      ),
-                    ],
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/videos');
+                    },
+                    child: CardHome(
+                      components: [
+                        SizedBox(
+                            height: Dimensions.width(context) * 0.23,
+                            child:
+                                Image(image: AssetImage(Assets.imagesVideo))),
+                        TextStyleNoor(
+                          text: "قسم الدروس المرئية",
+                          color: Colors.indigo,
+                          size: 12,
+                        ),
+                      ],
+                    ),
                   ),
                   CardHome(
                     components: [
