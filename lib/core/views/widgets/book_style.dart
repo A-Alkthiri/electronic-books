@@ -14,7 +14,6 @@ class BookStyle extends StatelessWidget {
       width: 100,
       height: 300,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
             color: Colors.grey,

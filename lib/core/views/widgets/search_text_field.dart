@@ -13,7 +13,7 @@ class SearchTextField extends StatelessWidget {
         width: Dimensions.width(context) / 3 * 2,
         padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4),
         decoration: BoxDecoration(
-          color: Colors.deepPurple[100],
+          color: Colors.indigo[100],
           borderRadius: BorderRadius.circular(30.0),
           boxShadow: [],
         ),

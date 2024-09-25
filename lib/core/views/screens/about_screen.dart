@@ -42,13 +42,11 @@ class AboutScreen extends StatelessWidget {
           children: <Widget>[
             SilverAppBar(),
             TextStyleNoor(
-              text: 'نبذة مختصرةعن الشيخ ',
+              text: 'نبذة مختصرة عن الشيخ ',
               color: Colors.black,
               size: Dimensions.width(context) * 0.08,
             ),
-            SizedBox(
-              height: Dimensions.height(context) * 0.70,
-              width: Dimensions.width(context),
+            Expanded(
               child: ListView.builder(
                 itemCount: title.length,
                 itemBuilder: (context, index) {
@@ -80,7 +78,6 @@ class AboutScreen extends StatelessWidget {
             fontFamily: 'noor',
             fontSize: Dimensions.width(context) * 0.04,
           )),
-      style: ListTileStyle.drawer,
     );
   }
 }
