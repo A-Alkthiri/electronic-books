@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:electronic_books/core/constants/dimensions.dart';
-import 'package:electronic_books/core/constants/imageApp.dart';
+import 'package:electronic_books/generated/assets.dart';
 import 'package:flutter/material.dart';
 
 class SliderApp extends StatelessWidget {
@@ -20,7 +20,7 @@ class SliderApp extends StatelessWidget {
               height: Dimensions.width(context) / 3,
               width: Dimensions.width(context),
               child: Image(
-                image: AssetImage(ImageApp.muhadhra()),
+                image: AssetImage(Assets.imagesMuhadhra),
                 fit: BoxFit.fill,
               ),
             ),
@@ -28,7 +28,7 @@ class SliderApp extends StatelessWidget {
               height: Dimensions.width(context) / 3,
               width: Dimensions.width(context),
               child: Image(
-                image: AssetImage(ImageApp.muhadhra2()),
+                image: AssetImage(Assets.imagesMuhadhra2),
                 fit: BoxFit.fill,
               ),
             )

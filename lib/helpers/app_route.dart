@@ -17,7 +17,9 @@ class RouteManager {
             builder: (ctx) => Directionality(
                 textDirection: TextDirection.rtl, child: BooksScreen()));
       case '/test':
-        return MaterialPageRoute(builder: (ctx) => Test());
+        return MaterialPageRoute(
+            builder: (ctx) => Directionality(
+                textDirection: TextDirection.rtl, child: Test()));
 
       case '/about':
         return MaterialPageRoute(

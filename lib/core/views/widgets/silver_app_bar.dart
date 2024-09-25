@@ -1,6 +1,5 @@
 import 'package:electronic_books/core/constants/dimensions.dart';
-import 'package:electronic_books/core/constants/imageApp.dart';
-import 'package:electronic_books/core/views/widgets/search_text_field.dart';
+import 'package:electronic_books/generated/assets.dart';
 import 'package:flutter/cupertino.dart';
 
 class SilverAppBar extends StatelessWidget {
@@ -13,7 +12,7 @@ class SilverAppBar extends StatelessWidget {
       width: Dimensions.width(context),
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage(ImageApp.shaikhAppBar()), fit: BoxFit.fill),
+            image: AssetImage(Assets.imagesShaikhAppBar), fit: BoxFit.fill),
       ),
     );
   }

@@ -1,5 +1,7 @@
 import 'package:electronic_books/core/constants/dimensions.dart';
 import 'package:electronic_books/core/views/widgets/silver_app_bar.dart';
+import 'package:electronic_books/core/views/widgets/text_style_noor.dart';
+import 'package:electronic_books/generated/assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -33,20 +35,16 @@ class AboutScreen extends StatelessWidget {
                 fit: BoxFit.cover,
                 opacity: 0.2,
                 image: AssetImage(
-                  'assets/images/background.jpg',
+                  Assets.imagesBackground,
                 ))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             SilverAppBar(),
-            Text(
-              'نبذة مختصرةعن الشيخ ',
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: 'noor',
-                fontSize: Dimensions.width(context) * 0.08,
-                fontWeight: FontWeight.bold,
-              ),
+            TextStyleNoor(
+              text: 'نبذة مختصرةعن الشيخ ',
+              color: Colors.black,
+              size: Dimensions.width(context) * 0.08,
             ),
             SizedBox(
               height: Dimensions.height(context) * 0.70,

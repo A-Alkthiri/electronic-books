@@ -1,8 +1,8 @@
-import 'package:electronic_books/core/constants/imageApp.dart';
 import 'package:electronic_books/core/views/widgets/card_home.dart';
 import 'package:electronic_books/core/views/widgets/silver_app_bar.dart';
 import 'package:electronic_books/core/views/widgets/slider_app.dart';
 import 'package:electronic_books/core/views/widgets/text_style_noor.dart';
+import 'package:electronic_books/generated/assets.dart';
 import 'package:flutter/material.dart';
 import '../../constants/dimensions.dart';
 
@@ -33,26 +33,30 @@ class HomeScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.pushNamed(context, '/books');
                     },
-                    child: CardHome(
-                      components: [
-                        SizedBox(
-                            height: Dimensions.width(context) * 0.23,
-                            child:
-                                Image(image: AssetImage(ImageApp.booksLogo()))),
-                        TextStyleNoor(
-                          text: "قسم الكتب",
-                          color: Colors.indigo,
-                          size: 12,
-                        ),
-                      ],
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/books');
+                      },
+                      child: CardHome(
+                        components: [
+                          SizedBox(
+                              height: Dimensions.width(context) * 0.23,
+                              child:
+                                  Image(image: AssetImage(Assets.imagesBooks))),
+                          TextStyleNoor(
+                            text: "قسم الكتب",
+                            color: Colors.indigo,
+                            size: 12,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   CardHome(
                     components: [
                       SizedBox(
                           height: Dimensions.width(context) * 0.23,
-                          child:
-                              Image(image: AssetImage(ImageApp.videoLogo()))),
+                          child: Image(image: AssetImage(Assets.imagesVideo))),
                       TextStyleNoor(
                         text: "قسم الدروس المرئية",
                         color: Colors.indigo,
@@ -64,8 +68,7 @@ class HomeScreen extends StatelessWidget {
                     components: [
                       SizedBox(
                           height: Dimensions.width(context) * 0.23,
-                          child:
-                              Image(image: AssetImage(ImageApp.volumeLogo()))),
+                          child: Image(image: AssetImage(Assets.imagesVolume))),
                       TextStyleNoor(
                         text: "قسم الدروس الصوتية",
                         color: Colors.indigo,
@@ -78,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                       SizedBox(
                           height: Dimensions.width(context) * 0.23,
                           child:
-                              Image(image: AssetImage(ImageApp.writingLogo()))),
+                              Image(image: AssetImage(Assets.imagesWriting))),
                       TextStyleNoor(
                         text: "قسم الفتاوى",
                         color: Colors.indigo,
@@ -90,7 +93,7 @@ class HomeScreen extends StatelessWidget {
                     components: [
                       SizedBox(
                           height: Dimensions.width(context) * 0.23,
-                          child: Image(image: AssetImage(ImageApp.noteLogo()))),
+                          child: Image(image: AssetImage(Assets.imagesNote))),
                       TextStyleNoor(
                         text: "قسم المقالات",
                         color: Colors.indigo,
@@ -110,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
                               image: DecorationImage(
-                                  image: AssetImage(ImageApp.omerBawazir()))),
+                                  image: AssetImage(Assets.imagesOmerBawazir))),
                         ),
                         TextStyleNoor(
                           text: "نبذة عن الشيخ",
