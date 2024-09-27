@@ -70,17 +70,23 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  CardHome(
-                    components: [
-                      SizedBox(
-                          height: Dimensions.width(context) * 0.23,
-                          child: Image(image: AssetImage(Assets.imagesVolume))),
-                      TextStyleNoor(
-                        text: "قسم الدروس الصوتية",
-                        color: Colors.indigo,
-                        size: 12,
-                      ),
-                    ],
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/volumes');
+                    },
+                    child: CardHome(
+                      components: [
+                        SizedBox(
+                            height: Dimensions.width(context) * 0.23,
+                            child:
+                                Image(image: AssetImage(Assets.imagesVolume))),
+                        TextStyleNoor(
+                          text: "قسم الدروس الصوتية",
+                          color: Colors.indigo,
+                          size: 12,
+                        ),
+                      ],
+                    ),
                   ),
                   CardHome(
                     components: [

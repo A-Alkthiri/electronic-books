@@ -1,22 +1,18 @@
-import 'package:electronic_books/core/views/widgets/book_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../generated/assets.dart';
+class Test extends StatefulWidget {
+  Test({super.key});
 
-class Test extends StatelessWidget {
-  const Test({super.key});
+  @override
+  State<Test> createState() => _TestState();
+}
 
+class _TestState extends State<Test> {
+  int _currentOpenIndex = -1;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      backgroundColor: Colors.indigo[300],
-      body: Center(
-        child: BookStyle(
-          image: AssetImage(Assets.imagesBook),
-        ),
-      ),
-    ));
+        child: Scaffold(backgroundColor: Colors.indigo[300], body: Center()));
   }
 }

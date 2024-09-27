@@ -33,7 +33,7 @@ class AboutScreen extends StatelessWidget {
         decoration: const BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,
-                opacity: 0.2,
+                opacity: 0.5,
                 image: AssetImage(
                   Assets.imagesBackground,
                 ))),

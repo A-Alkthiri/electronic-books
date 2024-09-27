@@ -1,7 +1,6 @@
 import 'package:electronic_books/core/constants/dimensions.dart';
 import 'package:electronic_books/core/views/widgets/search_text_field.dart';
 import 'package:electronic_books/core/views/widgets/silver_app_bar.dart';
-import 'package:electronic_books/core/views/widgets/text_style_noor.dart';
 import 'package:electronic_books/generated/assets.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +16,9 @@ class MaqalatScreen extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
+                  opacity: 0.5,
                   image: AssetImage(Assets.imagesBackground),
-                  fit: BoxFit.fill)),
+                  fit: BoxFit.cover)),
           height: Dimensions.height(context),
           width: Dimensions.width(context),
           child: Column(
@@ -39,7 +39,7 @@ class MaqalatScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return ListTile(
                       title: Text(
-                        "عنوان المقال",
+                        "${index + 1}  عنوان المقال ",
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'noor',
@@ -49,7 +49,7 @@ class MaqalatScreen extends StatelessWidget {
                       ),
                       subtitle: Text(
                           "المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى المحتوى ",
-                          textAlign: TextAlign.justify,
+                          // textAlign: TextAlign.justify,
                           style: TextStyle(
                             color: Colors.black,
                             fontFamily: 'noor',
