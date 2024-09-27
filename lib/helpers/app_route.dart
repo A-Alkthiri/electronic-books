@@ -1,5 +1,6 @@
 import 'package:electronic_books/core/views/screens/about_screen.dart';
 import 'package:electronic_books/core/views/screens/books_screen.dart';
+import 'package:electronic_books/core/views/screens/fatawa_screen.dart';
 import 'package:electronic_books/core/views/screens/home_screen.dart';
 import 'package:electronic_books/core/views/screens/maqalat_screen.dart';
 import 'package:electronic_books/core/views/screens/test.dart';
@@ -39,6 +40,10 @@ class RouteManager {
         return MaterialPageRoute(
             builder: (ctx) => Directionality(
                 textDirection: TextDirection.rtl, child: VolumesScreen()));
+      case '/fatawa':
+        return MaterialPageRoute(
+            builder: (ctx) => Directionality(
+                textDirection: TextDirection.rtl, child: FatawaScreen()));
     }
   }
 }
