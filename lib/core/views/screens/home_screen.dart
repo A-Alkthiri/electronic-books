@@ -4,18 +4,29 @@ import 'package:electronic_books/core/views/widgets/slider_app.dart';
 import 'package:electronic_books/core/views/widgets/text_style_noor.dart';
 import 'package:electronic_books/generated/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../constants/dimensions.dart';
+import '../../models/ads.dart';
+import '../../viewModels/ads_vm.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // allAds.add(Ads(
+    //     imageUrl:
+    //         'https://618media.com/wp-content/uploads/2023/12/shopping-ads-expansion-2023-growth-and-opportunities-1.webp'));
     return SafeArea(
       child: Scaffold(
         body: Column(children: [
-          SilverAppBar(),
-          SliderApp(),
+          const SilverAppBar(),
+          Selector<AdsVm, List<Ads>>(
+            selector: (context, avm) => avm.allAds,
+            builder: (context, value, child) => SliderApp(
+              allAds: value,
+            ),
+          ),
           Expanded(
             child: Container(
               height: Dimensions.height(context) -

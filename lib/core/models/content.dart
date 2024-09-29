@@ -4,20 +4,19 @@ class Content {
   String? message;
 
   Content({this.code, this.data, this.message});
-
   Content.fromJson(Map<String, dynamic> json) {
     code = json['code'];
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
     message = json['message'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['code'] = this.code;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['code'] = code;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
-    data['message'] = this.message;
+    data['message'] = message;
     return data;
   }
 }
@@ -48,17 +47,16 @@ class Data {
     id = json['id'];
     title = json['title'];
     description = json['description'];
-    category = json['category'] != null
-        ? new Category.fromJson(json['category'])
-        : null;
+    category =
+        json['category'] != null ? Category.fromJson(json['category']) : null;
     contentType = json['content_type'] != null
-        ? new Category.fromJson(json['content_type'])
+        ? Category.fromJson(json['content_type'])
         : null;
-    user = json['user'] != null ? new Category.fromJson(json['user']) : null;
+    user = json['user'] != null ? Category.fromJson(json['user']) : null;
     if (json['media'] != null) {
       media = <Media>[];
       json['media'].forEach((v) {
-        media!.add(new Media.fromJson(v));
+        media!.add(Media.fromJson(v));
       });
     }
     createdAt = json['created_at'];
@@ -66,24 +64,24 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['description'] = this.description;
-    if (this.category != null) {
-      data['category'] = this.category!.toJson();
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['id'] = id;
+    data['title'] = title;
+    data['description'] = description;
+    if (category != null) {
+      data['category'] = category!.toJson();
     }
-    if (this.contentType != null) {
-      data['content_type'] = this.contentType!.toJson();
+    if (contentType != null) {
+      data['content_type'] = contentType!.toJson();
     }
-    if (this.user != null) {
-      data['user'] = this.user!.toJson();
+    if (user != null) {
+      data['user'] = user!.toJson();
     }
-    if (this.media != null) {
-      data['media'] = this.media!.map((v) => v.toJson()).toList();
+    if (media != null) {
+      data['media'] = media!.map((v) => v.toJson()).toList();
     }
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
     return data;
   }
 }
@@ -101,8 +99,8 @@ class Category {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
+    data['id'] = id;
+    data['name'] = name;
     return data;
   }
 }
@@ -119,9 +117,9 @@ class Media {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['url'] = this.url;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['id'] = id;
+    data['url'] = url;
     return data;
   }
 }
