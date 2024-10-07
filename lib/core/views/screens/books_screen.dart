@@ -1,19 +1,22 @@
 import 'package:electronic_books/core/constants/dimensions.dart';
-import 'package:electronic_books/core/views/widgets/book_style.dart';
+import 'package:electronic_books/core/models/content.dart';
+import 'package:electronic_books/core/viewModels/contents_vm.dart';
 import 'package:electronic_books/core/views/widgets/search_text_field.dart';
 import 'package:electronic_books/core/views/widgets/silver_app_bar.dart';
 import 'package:electronic_books/core/views/widgets/text_style_noor.dart';
-import 'package:electronic_books/generated/assets.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../widgets/book_style.dart';
+import '../widgets/dialog_book.dart';
 
 class BooksScreen extends StatelessWidget {
-  const BooksScreen({super.key});
+  BooksScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 4,
       child: SafeArea(
           child: Scaffold(
         backgroundColor: Colors.indigo[200],
@@ -42,10 +45,6 @@ class BooksScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30)),
               child: TabBar(tabs: [
                 TextStyleNoor(
-                  text: "الكل",
-                  color: Colors.indigo,
-                ),
-                TextStyleNoor(
                   text: "عقيدة",
                   color: Colors.indigo,
                 ),
@@ -62,31 +61,6 @@ class BooksScreen extends StatelessWidget {
                   color: Colors.indigo,
                 ),
               ]),
-              // child: Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-              //   children: [
-              //     TextStyleNoor(
-              //       text: "الكل",
-              //       color: Colors.indigo,
-              //     ),
-              //     TextStyleNoor(
-              //       text: "عقيدة",
-              //       color: Colors.indigo,
-              //     ),
-              //     TextStyleNoor(
-              //       text: "فقه",
-              //       color: Colors.indigo,
-              //     ),
-              //     TextStyleNoor(
-              //       text: "حديث",
-              //       color: Colors.indigo,
-              //     ),
-              //     TextStyleNoor(
-              //       text: "سيرة",
-              //       color: Colors.indigo,
-              //     ),
-              //   ],
-              // ),
             ),
             SizedBox(
               height: Dimensions.width(context) * 0.04,
@@ -103,66 +77,10 @@ class BooksScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10)),
                 child: TabBarView(
                   children: [
-                    GridView.builder(
-                      itemCount: 8,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisSpacing: 25,
-                          mainAxisSpacing: 20,
-                          crossAxisCount: 2),
-                      itemBuilder: (context, index) {
-                        return Container(
-                            child: BookStyle(
-                                image: AssetImage(Assets.imagesBook)));
-                      },
-                    ),
-                    GridView.builder(
-                      itemCount: 8,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisSpacing: 25,
-                          mainAxisSpacing: 20,
-                          crossAxisCount: 2),
-                      itemBuilder: (context, index) {
-                        return Container(
-                            child: BookStyle(
-                                image: AssetImage(Assets.imagesBook)));
-                      },
-                    ),
-                    GridView.builder(
-                      itemCount: 8,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisSpacing: 25,
-                          mainAxisSpacing: 20,
-                          crossAxisCount: 2),
-                      itemBuilder: (context, index) {
-                        return Container(
-                            child: BookStyle(
-                                image: AssetImage(Assets.imagesBook)));
-                      },
-                    ),
-                    GridView.builder(
-                      itemCount: 8,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisSpacing: 25,
-                          mainAxisSpacing: 20,
-                          crossAxisCount: 2),
-                      itemBuilder: (context, index) {
-                        return Container(
-                            child: BookStyle(
-                                image: AssetImage(Assets.imagesBook)));
-                      },
-                    ),
-                    GridView.builder(
-                      itemCount: 8,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisSpacing: 25,
-                          mainAxisSpacing: 20,
-                          crossAxisCount: 2),
-                      itemBuilder: (context, index) {
-                        return Container(
-                            child: BookStyle(
-                                image: AssetImage(Assets.imagesBook)));
-                      },
-                    ),
+                    tabBarView(1, 1, context),
+                    tabBarView(2, 1, context),
+                    tabBarView(3, 1, context),
+                    tabBarView(4, 1, context),
                   ],
                 ),
               ),
@@ -172,4 +90,34 @@ class BooksScreen extends StatelessWidget {
       )),
     );
   }
+}
+
+Widget tabBarView(int categoryId, int typeId, BuildContext ctx) {
+  ContentsVm c = Provider.of<ContentsVm>(ctx);
+  c.getContents(categoryId, typeId);
+  return Selector<ContentsVm, List<Content>>(
+    selector: (context, cvm) => c.contents,
+    builder: (context, value, child) {
+      if (value.isNotEmpty)
+        return GridView.builder(
+            itemCount: value.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisSpacing: 25, mainAxisSpacing: 20, crossAxisCount: 2),
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) => DialogBook(
+                            book: value[index],
+                          ));
+                },
+                child: BookStyle(image: NetworkImage(value[index].imagePath!)),
+                // child: TextStyleNoor(text: value[index].title!),
+              );
+            });
+      else
+        return Center(child: CircularProgressIndicator());
+    },
+  );
 }

@@ -3,6 +3,7 @@ import 'package:electronic_books/core/views/screens/books_screen.dart';
 import 'package:electronic_books/core/views/screens/fatawa_screen.dart';
 import 'package:electronic_books/core/views/screens/home_screen.dart';
 import 'package:electronic_books/core/views/screens/maqalat_screen.dart';
+import 'package:electronic_books/core/views/screens/pdf_screen.dart';
 import 'package:electronic_books/core/views/screens/test.dart';
 import 'package:electronic_books/core/views/screens/videos_screen.dart';
 import 'package:electronic_books/core/views/screens/volumes_screen.dart';
@@ -44,6 +45,13 @@ class RouteManager {
         return MaterialPageRoute(
             builder: (ctx) => Directionality(
                 textDirection: TextDirection.rtl, child: FatawaScreen()));
+      case '/pdf':
+        return MaterialPageRoute(
+            builder: (ctx) => Directionality(
+                textDirection: TextDirection.rtl,
+                child: PdfScreen(
+                    // content: settings.arguments as Content,
+                    )));
     }
   }
 }

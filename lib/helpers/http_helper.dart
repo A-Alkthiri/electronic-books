@@ -2,13 +2,16 @@ import 'package:dio/dio.dart';
 
 class HttpHelper {
   static HttpHelper? httpHelper;
+
   HttpHelper._();
+
   static HttpHelper get instance {
     httpHelper ??= HttpHelper._();
     return httpHelper!;
   }
 
   Dio d = Dio();
+
   Future<Response> getRequest({required String url}) async {
     return await d.get(url);
   }

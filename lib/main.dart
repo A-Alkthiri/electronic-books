@@ -1,4 +1,6 @@
 import 'package:electronic_books/core/viewModels/ads_vm.dart';
+import 'package:electronic_books/core/viewModels/categories_vm.dart';
+import 'package:electronic_books/core/viewModels/contents_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,8 +16,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => AdsVm(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => AdsVm()),
+        ChangeNotifierProvider(create: (context) => ContentsVm()),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(

@@ -1,6 +1,5 @@
 import 'package:electronic_books/core/constants/dimensions.dart';
 import 'package:electronic_books/generated/assets.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SilverAppBar extends StatelessWidget {

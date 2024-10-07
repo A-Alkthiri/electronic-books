@@ -16,4 +16,5 @@ class Assets {
   static const String imagesVideo = 'assets/images/video.png';
   static const String imagesVolume = 'assets/images/volume.png';
   static const String imagesWriting = 'assets/images/writing.png';
+  static const String pdfFilesF = 'assets/pdfFiles/f.pdf';
 }
