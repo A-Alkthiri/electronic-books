@@ -98,10 +98,10 @@ Widget tabBarView(int categoryId, int typeId, BuildContext ctx) {
   return Selector<ContentsVm, List<Content>>(
     selector: (context, cvm) => c.contents,
     builder: (context, value, child) {
-      if (value.isNotEmpty)
+      if (value.isNotEmpty) {
         return GridView.builder(
             itemCount: value.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisSpacing: 25, mainAxisSpacing: 20, crossAxisCount: 2),
             itemBuilder: (context, index) {
               return InkWell(
@@ -116,8 +116,9 @@ Widget tabBarView(int categoryId, int typeId, BuildContext ctx) {
                 // child: TextStyleNoor(text: value[index].title!),
               );
             });
-      else
-        return Center(child: CircularProgressIndicator());
+      } else {
+        return const Center(child: CircularProgressIndicator());
+      }
     },
   );
 }
