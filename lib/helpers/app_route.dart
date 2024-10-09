@@ -1,4 +1,6 @@
+import 'package:electronic_books/core/models/content.dart';
 import 'package:electronic_books/core/views/screens/about_screen.dart';
+import 'package:electronic_books/core/views/screens/app_video_player.dart';
 import 'package:electronic_books/core/views/screens/books_screen.dart';
 import 'package:electronic_books/core/views/screens/fatawa_screen.dart';
 import 'package:electronic_books/core/views/screens/home_screen.dart';
@@ -52,6 +54,14 @@ class RouteManager {
                 child: PdfScreen(
                     // content: settings.arguments as Content,
                     )));
+      case '/youtube':
+        return MaterialPageRoute(
+            builder: (ctx) => Directionality(
+                textDirection: TextDirection.rtl,
+                child: YouTubeVideoPage(
+                  content: settings.arguments as Content,
+                  // content: settings.arguments as Content,
+                )));
     }
   }
 }

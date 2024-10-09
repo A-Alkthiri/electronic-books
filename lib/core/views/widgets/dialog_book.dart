@@ -30,7 +30,7 @@ class DialogBook extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                       elevation: 6, backgroundColor: Colors.green),
                   onPressed: () {
-                    Navigator.pushNamed(context, 'pdf');
+                    Navigator.pushReplacementNamed(context, '/pdf');
                   },
                   child: TextStyleNoor(
                     text: "قراءة",

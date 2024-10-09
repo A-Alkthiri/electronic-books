@@ -6,7 +6,6 @@ import 'package:electronic_books/core/views/widgets/silver_app_bar.dart';
 import 'package:electronic_books/core/views/widgets/text_style_noor.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../widgets/book_style.dart';
 import '../widgets/dialog_book.dart';
 
@@ -26,10 +25,10 @@ class BooksScreen extends StatelessWidget {
               clipBehavior: Clip.none,
               children: [
                 SilverAppBar(),
-                Positioned(
-                    right: Dimensions.width(context) / 6,
-                    top: Dimensions.width(context) / 3 - 20,
-                    child: SearchTextField()),
+                // Positioned(
+                //     right: Dimensions.width(context) / 6,
+                //     top: Dimensions.width(context) / 3 - 20,
+                //     child: SearchTextField()),
               ],
             ),
             SizedBox(
@@ -77,10 +76,10 @@ class BooksScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10)),
                 child: TabBarView(
                   children: [
-                    tabBarView(1, 1, context),
-                    tabBarView(2, 1, context),
-                    tabBarView(3, 1, context),
-                    tabBarView(4, 1, context),
+                    tabBarView(1, 2, context),
+                    tabBarView(2, 2, context),
+                    tabBarView(3, 2, context),
+                    tabBarView(4, 2, context),
                   ],
                 ),
               ),
@@ -93,11 +92,11 @@ class BooksScreen extends StatelessWidget {
 }
 
 Widget tabBarView(int categoryId, int typeId, BuildContext ctx) {
-  ContentsVm c = Provider.of<ContentsVm>(ctx);
+  ContentsVm c = ContentsVm();
   c.getContents(categoryId, typeId);
   return Selector<ContentsVm, List<Content>>(
-    selector: (context, cvm) => c.contents,
-    builder: (context, value, child) {
+    selector: (ctx, cvm) => c.contents,
+    builder: (ctx, value, child) {
       if (value.isNotEmpty) {
         return GridView.builder(
             itemCount: value.length,
@@ -117,7 +116,18 @@ Widget tabBarView(int categoryId, int typeId, BuildContext ctx) {
               );
             });
       } else {
-        return const Center(child: CircularProgressIndicator());
+        return Center(
+            child: Column(
+          children: [
+            const CircularProgressIndicator(),
+            TextStyleNoor(
+              text: "جاري التحميل..",
+            ),
+            TextStyleNoor(
+              text: "أو قد تكون هذه القائمة فارغة",
+            )
+          ],
+        ));
       }
     },
   );

@@ -20,6 +20,7 @@ class ContentsVm with ChangeNotifier {
         url: HttpUrls.CATEGORIES_URL,
         data: {"category_id": categoryId, "content_type_id": typeId});
     Base b = Base.fromJson(response.data);
+    contents.clear();
     contents =
         b.data.map<Content>((content) => Content.fromJson(content)).toList();
 
