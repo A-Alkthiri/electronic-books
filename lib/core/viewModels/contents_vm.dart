@@ -9,6 +9,7 @@ import '../models/base.dart';
 
 class ContentsVm with ChangeNotifier {
   List<Content> contents = [];
+  String url = '';
 
   ContentsVm() {
     //getContents(categoryId, typeId);

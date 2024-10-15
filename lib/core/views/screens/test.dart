@@ -1,6 +1,6 @@
-import 'package:electronic_books/core/views/widgets/dialog_book.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Test extends StatefulWidget {
   Test({super.key});
@@ -15,6 +15,11 @@ class _TestState extends State<Test> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(backgroundColor: Colors.indigo[300], body: Center()));
+        child: Scaffold(
+      backgroundColor: Colors.indigo[300],
+      body: Center(
+        child: SpinKitDoubleBounce(),
+      ),
+    ));
   }
 }

@@ -9,6 +9,7 @@ import 'package:electronic_books/core/views/screens/pdf_screen.dart';
 import 'package:electronic_books/core/views/screens/test.dart';
 import 'package:electronic_books/core/views/screens/videos_screen.dart';
 import 'package:electronic_books/core/views/screens/volumes_screen.dart';
+import 'package:electronic_books/core/views/screens/audio_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -61,6 +62,13 @@ class RouteManager {
                 child: YouTubeVideoPage(
                   content: settings.arguments as Content,
                   // content: settings.arguments as Content,
+                )));
+      case '/audio':
+        return MaterialPageRoute(
+            builder: (ctx) => Directionality(
+                textDirection: TextDirection.rtl,
+                child: AppAudioPlayer(
+                  content: settings.arguments as Content,
                 )));
     }
   }

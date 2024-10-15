@@ -2,17 +2,15 @@ import 'package:electronic_books/core/constants/dimensions.dart';
 import 'package:electronic_books/core/views/widgets/text_style_noor.dart';
 import 'package:flutter/material.dart';
 
-import '../../models/content.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class PdfScreen extends StatelessWidget {
-  PdfScreen({
+  const PdfScreen({
     super.key,
     // required this.content
   });
 
   // Content? content;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

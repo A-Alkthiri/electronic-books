@@ -43,7 +43,7 @@ class AboutScreen extends StatelessWidget {
             SilverAppBar(),
             TextStyleNoor(
               text: 'نبذة مختصرة عن الشيخ ',
-              color: Colors.black,
+              color: Colors.indigo,
               size: Dimensions.width(context) * 0.08,
             ),
             Expanded(
@@ -65,7 +65,7 @@ class AboutScreen extends StatelessWidget {
       title: Text(
         title,
         style: TextStyle(
-          color: Colors.black,
+          color: Colors.indigoAccent,
           fontFamily: 'noor',
           fontSize: Dimensions.width(context) * 0.05,
           fontWeight: FontWeight.bold,
@@ -76,7 +76,7 @@ class AboutScreen extends StatelessWidget {
           style: TextStyle(
             color: Colors.black,
             fontFamily: 'noor',
-            fontSize: Dimensions.width(context) * 0.04,
+            fontSize: Dimensions.width(context) * 0.035,
           )),
     );
   }

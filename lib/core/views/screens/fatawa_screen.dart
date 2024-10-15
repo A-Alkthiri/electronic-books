@@ -17,15 +17,10 @@ class FatawaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+      backgroundColor: Colors.indigo[200],
       body: Container(
         height: Dimensions.height(context),
         width: Dimensions.width(context),
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(Assets.imagesBackground),
-              opacity: 0.5,
-              fit: BoxFit.cover),
-        ),
         child: Column(
           children: [
             Stack(
@@ -38,6 +33,9 @@ class FatawaScreen extends StatelessWidget {
                 //     child: SearchTextField()),
               ],
             ),
+            SizedBox(
+              height: 16,
+            ),
             Expanded(
               child: Selector<ContentsVm, List<Content>>(
                 selector: (context, cvm) {
@@ -48,60 +46,78 @@ class FatawaScreen extends StatelessWidget {
                   return ListView.builder(
                       itemCount: value.length,
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          onTap: () {
-                            Content c = value[index];
-                            showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return Directionality(
-                                    textDirection: TextDirection.rtl,
-                                    child: AlertDialog(
-                                      title: TextStyleNoor(
-                                        size: 14,
-                                        text: value[index].title!,
-                                        color: Colors.indigo,
-                                      ),
-                                      actionsAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      backgroundColor: Colors.indigo[200],
-                                      content: SingleChildScrollView(
-                                        child: TextStyleNoor(
-                                            text: value[index].description!),
-                                      ),
-                                      actions: [
-                                        IconButton(
-                                            onPressed: () {
-                                              Share.share(
-                                                  "${c.description!}\n\n\n\n\nتمت مشاركة هذه الفتوى عبر تطبيق الشيخ أبي الحارث عمر باوزير");
-                                            },
-                                            icon: const Icon(
-                                              Icons.share,
-                                              color: Colors.white,
-                                            )),
-                                        IconButton(
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            },
-                                            icon: const Icon(
-                                              Icons.close,
-                                              color: Colors.red,
-                                            )),
-                                      ],
-                                    ),
-                                  );
-                                });
-                          },
-                          leading: TextStyleNoor(
-                            color: Colors.indigo,
-                            text: "${index + 1}",
-                            size: 20,
-                          ),
-                          title: TextStyleNoor(
-                            size: 14,
-                            text: value[index].title!,
-                            color: Colors.indigo,
-                          ),
+                        return Column(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 16),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                                image: DecorationImage(
+                                    image: AssetImage(Assets.imagesBackground),
+                                    opacity: 0.5,
+                                    fit: BoxFit.cover),
+                              ),
+                              child: ListTile(
+                                onTap: () {
+                                  Content c = value[index];
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return Directionality(
+                                          textDirection: TextDirection.rtl,
+                                          child: AlertDialog(
+                                            title: TextStyleNoor(
+                                              size: 16,
+                                              text: value[index].title!,
+                                              color: Colors.indigo,
+                                            ),
+                                            actionsAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            backgroundColor: Colors.indigo[200],
+                                            content: SingleChildScrollView(
+                                              child: TextStyleNoor(
+                                                  text: value[index]
+                                                      .description!),
+                                            ),
+                                            actions: [
+                                              IconButton(
+                                                  onPressed: () {
+                                                    Share.share(
+                                                        "${c.description!}\n\n\n\n\nتمت مشاركة هذه الفتوى عبر تطبيق الشيخ أبي الحارث عمر باوزير");
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.share,
+                                                    color: Colors.white,
+                                                  )),
+                                              IconButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.close,
+                                                    color: Colors.red,
+                                                  )),
+                                            ],
+                                          ),
+                                        );
+                                      });
+                                },
+                                leading: TextStyleNoor(
+                                  color: Colors.indigo,
+                                  text: "${index + 1}",
+                                  size: 20,
+                                ),
+                                title: TextStyleNoor(
+                                  size: 14,
+                                  text: value[index].title!,
+                                  color: Colors.indigo,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            )
+                          ],
                         );
                       });
                 },

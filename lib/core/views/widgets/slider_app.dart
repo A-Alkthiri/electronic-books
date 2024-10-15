@@ -30,6 +30,7 @@ class SliderApp extends StatelessWidget {
               options: CarouselOptions(
                 height: Dimensions.width(context) / 3,
                 autoPlay: true,
+                viewportFraction: 1,
               ),
             ))
         : Container();

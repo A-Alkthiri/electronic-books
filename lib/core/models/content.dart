@@ -8,6 +8,7 @@ class Content {
   int? category;
   int? contentType;
   String? media_url;
+  bool? isActive;
 
   Content(
       {this.id,

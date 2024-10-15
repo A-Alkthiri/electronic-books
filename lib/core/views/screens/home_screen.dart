@@ -1,3 +1,4 @@
+import 'package:electronic_books/core/viewModels/contents_vm.dart';
 import 'package:electronic_books/core/views/widgets/card_home.dart';
 import 'package:electronic_books/core/views/widgets/silver_app_bar.dart';
 import 'package:electronic_books/core/views/widgets/slider_app.dart';
@@ -7,10 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../constants/dimensions.dart';
 import '../../models/ads.dart';
+import '../../models/content.dart';
 import '../../viewModels/ads_vm.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +85,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, '/volumes');
+                      Navigator.pushNamed(
+                        context,
+                        '/volumes',
+                      );
                     },
                     child: CardHome(
                       components: [
@@ -141,8 +146,8 @@ class HomeScreen extends StatelessWidget {
                     child: CardHome(
                       components: [
                         Container(
-                          height: Dimensions.width(context) * 0.23,
-                          width: Dimensions.width(context) * 0.23,
+                          height: Dimensions.width(context) * 0.2,
+                          width: Dimensions.width(context) * 0.2,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
                               image: DecorationImage(
