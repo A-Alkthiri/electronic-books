@@ -16,7 +16,5 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 
-![](screenshot1.jpg)
-
-![](screenshot2.jpg)
+![](screenshot1.jpg)![](screenshot2.jpg)
 
